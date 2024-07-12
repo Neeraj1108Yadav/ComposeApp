@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ComposeApp</string>
+    <string name="title_activity_happy_birthday">HappyBirthday</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_flower_app_entry">FlowerAppEntry</string>
+    <string name="title_activity_flower_screen_login">FlowerScreenLogin</string>
+
+    <string name="save_profile">Save Profile</string>
+</resources>
