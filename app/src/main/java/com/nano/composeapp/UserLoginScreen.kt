@@ -27,7 +27,9 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FlowerScreenLogin(){
+fun UserLoginScreen(
+    onLoginClick: () -> Unit
+){
     Scaffold(
         topBar = {
             TopAppBar(
@@ -85,8 +87,10 @@ fun FlowerScreenLogin(){
             Spacer(modifier = Modifier.height(16.dp))
 
             ElevatedButton(
-                onClick = { },
-                modifier = Modifier.align(Alignment.CenterHorizontally).height(60.dp)
+                onClick = onLoginClick,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .height(60.dp)
             ) {
                 Text(text = "Login")
             }

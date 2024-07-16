@@ -13,7 +13,8 @@ class UserActivity : ComponentActivity() {
         setContent {
             ComposeAppTheme {
                 //FlowerScreenLogin()
-                UserProfileScreen()
+                //UserProfileScreen()
+                ComposeRelatedApp()
             }
         }
     }
