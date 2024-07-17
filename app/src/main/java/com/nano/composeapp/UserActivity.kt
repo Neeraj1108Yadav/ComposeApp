@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.nano.composeapp.components.ButtonCompose
 import com.nano.composeapp.ui.theme.ComposeAppTheme
 
 class UserActivity : ComponentActivity() {
@@ -14,7 +15,8 @@ class UserActivity : ComponentActivity() {
             ComposeAppTheme {
                 //FlowerScreenLogin()
                 //UserProfileScreen()
-                ComposeRelatedApp()
+                //ComposeRelatedApp()
+                ButtonCompose()
             }
         }
     }
