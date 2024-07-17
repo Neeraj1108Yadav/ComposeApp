@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -27,10 +28,12 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FlowerScreenLogin(){
+fun UserLoginScreen(
+    onLoginClick: () -> Unit
+){
     Scaffold(
         topBar = {
-            TopAppBar(
+            CenterAlignedTopAppBar(
                 colors = topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary,
@@ -85,8 +88,10 @@ fun FlowerScreenLogin(){
             Spacer(modifier = Modifier.height(16.dp))
 
             ElevatedButton(
-                onClick = { },
-                modifier = Modifier.align(Alignment.CenterHorizontally).height(60.dp)
+                onClick = onLoginClick,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .height(60.dp)
             ) {
                 Text(text = "Login")
             }
