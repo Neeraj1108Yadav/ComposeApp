@@ -1,5 +1,6 @@
 package com.nano.composeapp.components
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -9,7 +10,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.shape.AbsoluteCutCornerShape
+import androidx.compose.foundation.shape.AbsoluteRoundedCornerShape
+import androidx.compose.foundation.shape.CutCornerShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
@@ -19,11 +23,11 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExposedDropdownMenuBoxScope
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
@@ -34,8 +38,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.nano.composeapp.ButtonShapeEnum
 import com.nano.composeapp.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -67,75 +75,114 @@ fun ButtonCompose(){
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            Row(modifier = Modifier.padding(10.dp)){
-                ExposedDropdownMenuBoxScope()
+            Spacer(modifier = Modifier.height(16.dp))
 
-                Button(
-                    onClick = { },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = colorResource(id = R.color.teal_700),
-                        contentColor = colorResource(id = R.color.black)
-                    )
-                ) {
-                    Text(text = "Default Shape Button")
-                }
+            ExposedDropdownMenuBoxScope()
+        }
+    }
+}
+
+//https://medium.com/@jayeshseth/constraint-layout-jetpack-compose-a3545f3dee00
+@Composable
+fun ExposedDropdownMenuBoxScope(){
+    val buttonShapeOptions = arrayOf(
+        ButtonShapeEnum.ROUND_CORNER.shape,
+        ButtonShapeEnum.RECTANGLE_CORNER.shape,
+        ButtonShapeEnum.CUT_CORNER.shape,
+        ButtonShapeEnum.ABSOLUTE_CORNER.shape,
+    )
+
+    var expanded by remember { mutableStateOf(false) }
+    var selectedShape by remember { mutableStateOf(buttonShapeOptions[0]) }
+    var shape by remember { mutableStateOf(ButtonShapeEnum.ROUND_CORNER) }
+
+    Row(modifier = Modifier.padding(10.dp)){
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .background(Color.Gray)
+        ){
+            Text(
+                text = selectedShape,
+                modifier = Modifier
+                    .padding(0.dp)
+                    .fillMaxWidth()
+                    .align(Alignment.Center)
+                    .background(Color.Red)
+                    .clickable(onClick = { expanded = true })
+                    .padding(10.dp)
+            )
+
+            IconButton(
+                onClick = { expanded = true },
+                modifier = Modifier
+                    .background(Color.Blue)
+                    .align(Alignment.CenterEnd)
+            ) {
+                val icon = if(expanded){ Icons.Filled.KeyboardArrowUp }else{ Icons.Filled.KeyboardArrowDown }
+                Icon(
+                    imageVector = icon,
+                    contentDescription = "More",
+                    tint = Color.White
+                )
             }
 
+            DropdownMenu(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color.Red),
+                expanded = expanded, // When expand set to true, drop down will expand
+                onDismissRequest = { expanded = false}
+            ) {
+
+                buttonShapeOptions.forEachIndexed { index, label ->
+                    DropdownMenuItem(
+                        text = { Text(text = label) },
+                        onClick = {
+                            selectedShape = label
+                            expanded = false
+                        }
+                    )
+                }
+
+                shape = ButtonShapeEnum.values().find { it.shape == selectedShape } ?: ButtonShapeEnum.ROUND_CORNER
+            }
+        }
+
+        Box(modifier = Modifier
+            .weight(1f)
+            .fillMaxWidth()){
+            ButtonShapeChange(shape,selectedShape)
         }
     }
 }
 
 @Composable
-fun ExposedDropdownMenuBoxScope(){
-    val buttonShapeOptions = arrayOf("Default Shape","Elevated Shape","FilledTonal Shape","Outlined Shape","Text Shape")
-
-    var expanded by remember { mutableStateOf(false) }
-    var selectedShape by remember { mutableStateOf(buttonShapeOptions[0]) }
-
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .wrapContentWidth(Alignment.Start)
-    ){
-
-        Text(
-            text = selectedShape,
-            modifier = Modifier.fillMaxWidth()
-                .clickable(onClick = {expanded = true}).background(Color.Gray)
-        )
-
-        IconButton(
-            onClick = { }
-        ) {
-            val icon = if(expanded){
-                Icons.Filled.KeyboardArrowUp
-            }else{
-                Icons.Filled.KeyboardArrowDown
-            }
-
-            Icon(
-                imageVector = icon,
-                contentDescription = "More"
-            )
-        }
-
-
-        DropdownMenu(
-            modifier = Modifier.fillMaxWidth().background(Color.Red),
-            expanded = expanded,
-            onDismissRequest = { expanded = false}
-        ) {
-
-            buttonShapeOptions.forEachIndexed { index, label ->
-                DropdownMenuItem(
-                    text = { Text(text = label) },
-                    onClick = {
-                        selectedShape = label
-                        expanded = false
-                    }
-                )
-            }
-        }
+fun ButtonShapeChange(shape:ButtonShapeEnum,shapeType:String){
+    val buttonShape = when(shape){
+        ButtonShapeEnum.RECTANGLE_CORNER->{ RectangleShape}
+        ButtonShapeEnum.CUT_CORNER->{ CutCornerShape(10.dp) }
+        ButtonShapeEnum.ABSOLUTE_CORNER->{ AbsoluteRoundedCornerShape(20.dp) }
+        else->{RoundedCornerShape(10.dp)}
     }
 
+    Button(
+        onClick = { },
+        modifier = Modifier.padding(start = 10.dp, end = 10.dp),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = colorResource(id = R.color.teal_700),
+            contentColor = colorResource(id = R.color.black)
+        ),
+        shape = buttonShape
+    ) {
+        Text(text = shapeType)
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun ButtonComposePreview(){
+    ButtonCompose()
 }
