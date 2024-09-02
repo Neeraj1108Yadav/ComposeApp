@@ -1,4 +1,4 @@
-package com.nano.composeapp
+package com.nano.composeapp.components.buttons
 
 /**
  * Created By Neeraj Yadav on 20/07/24

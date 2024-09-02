@@ -6,4 +6,7 @@
     <string name="title_activity_flower_screen_login">FlowerScreenLogin</string>
 
     <string name="save_profile">Save Profile</string>
+    <string name="button_shapes">Shapes of Button</string>
+    <string name="button_types">Types of Button</string>
+    <string name="input_field_types">Types Of Input Fields</string>
 </resources>
