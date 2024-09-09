@@ -20,10 +20,10 @@ import androidx.compose.runtime.Composable
  */
 
 @Composable
-fun TopAppBarCentreAligned(){
+fun TopAppBarCentreAligned(onBackPress:() -> Unit){
     Scaffold (
         topBar = {
-            CenterTopAppBar()
+            CenterTopAppBar(onBackPress)
         },
         floatingActionButton = {
             ExtendedFloatingButton()
@@ -35,7 +35,7 @@ fun TopAppBarCentreAligned(){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CenterTopAppBar(){
+fun CenterTopAppBar(onBackPress:() -> Unit){
    CenterAlignedTopAppBar(
        title = { Text(text = "Title Centred App Bar") },
        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
@@ -43,7 +43,7 @@ fun CenterTopAppBar(){
            titleContentColor = MaterialTheme.colorScheme.onSecondaryContainer
        ),
        navigationIcon = {
-           IconButton(onClick = { /*TODO*/ }) {
+           IconButton(onClick = onBackPress) {
                Icon(imageVector = Icons.Sharp.ArrowBack, contentDescription = "Back")
            }
        },

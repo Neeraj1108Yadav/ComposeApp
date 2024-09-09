@@ -21,14 +21,14 @@ class UserActivity : ComponentActivity() {
             ComposeAppTheme {
                 //FlowerScreenLogin()
                 //UserProfileScreen()
-                //ComposeRelatedApp()
+                ComposeRelatedApp()
                 //ButtonCompose()
                 //TextInputCompose()
                 //TopBarSmall()
                 //TopAppBarCentreAligned()
                 //AppBarMedium()
                 //TopAppBarLarge()
-                CardComponent()
+                //CardComponent()
             }
         }
     }
