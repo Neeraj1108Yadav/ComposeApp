@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Call
 import androidx.compose.material.icons.twotone.Menu
 import androidx.compose.material.icons.twotone.Search
@@ -28,12 +29,12 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppBarMedium(){
+fun AppBarMedium(onBackPress:() -> Unit){
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
     Scaffold (
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            MediumAppBar(scrollBehavior)
+            MediumAppBar(scrollBehavior,onBackPress)
         },
         floatingActionButton = {
             FloatingButton()
@@ -45,7 +46,9 @@ fun AppBarMedium(){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MediumAppBar(scrollBehavior: TopAppBarScrollBehavior){
+fun MediumAppBar(
+    scrollBehavior: TopAppBarScrollBehavior,
+    onBackPress:() -> Unit){
     MediumTopAppBar(
         title = { Text(text = "Medium App Bar Title") },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
@@ -53,8 +56,8 @@ fun MediumAppBar(scrollBehavior: TopAppBarScrollBehavior){
             titleContentColor = MaterialTheme.colorScheme.onTertiaryContainer
         ),
         navigationIcon = {
-            IconButton(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.TwoTone.Menu, contentDescription = "Menu" )
+            IconButton(onClick = onBackPress) {
+                Icon(imageVector = Icons.TwoTone.ArrowBack, contentDescription = "Back" )
             }
         },
         actions = {

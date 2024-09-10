@@ -15,6 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -46,7 +47,9 @@ import com.nano.composeapp.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ButtonCompose(){
+fun ButtonCompose(
+    onClickBack: () -> Unit
+){
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -54,7 +57,12 @@ fun ButtonCompose(){
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary,
                 ),
-                title = { Text(text = "Buttons")}
+                title = { Text(text = "Buttons")},
+                navigationIcon = {
+                    IconButton(onClick = onClickBack) {
+                        Icon(imageVector = Icons.Outlined.ArrowBack, contentDescription = "Back")
+                    }
+                }
             )
         }
     ) {innerPadding->
@@ -184,5 +192,5 @@ fun ButtonShapeChange(shape: ButtonShapeEnum, shapeType:String){
 @Preview(showBackground = true)
 @Composable
 fun ButtonComposePreview(){
-    ButtonCompose()
+    ButtonCompose({})
 }

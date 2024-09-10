@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.ExitToApp
 import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.Notifications
@@ -31,12 +32,12 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBarLarge(){
+fun TopAppBarLarge(onBackPress:() -> Unit){
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            TopAppBarLargeExample(scrollBehavior)
+            TopAppBarLargeExample(scrollBehavior,onBackPress)
         },
         floatingActionButton = {
             LargeFloatingButton()
@@ -48,7 +49,9 @@ fun TopAppBarLarge(){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBarLargeExample(scrollBehavior: TopAppBarScrollBehavior){
+fun TopAppBarLargeExample(
+    scrollBehavior: TopAppBarScrollBehavior,
+    onBackPress:() -> Unit){
     LargeTopAppBar(
         title = { Text(text = "Large Top App Bar") },
         colors = TopAppBarDefaults.largeTopAppBarColors(
@@ -56,8 +59,8 @@ fun TopAppBarLargeExample(scrollBehavior: TopAppBarScrollBehavior){
             titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
         ),
         navigationIcon = {
-            IconButton(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Outlined.Menu, contentDescription = "Menu")
+            IconButton(onClick = onBackPress) {
+                Icon(imageVector = Icons.Outlined.ArrowBack, contentDescription = "Back")
             }
         },
         actions = {

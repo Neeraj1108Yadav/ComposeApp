@@ -16,6 +16,7 @@ import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.Create
 import androidx.compose.material.icons.outlined.LocationOn
@@ -74,10 +75,12 @@ import androidx.compose.ui.unit.sp
  */
 
 @Composable
-fun CardComponent(){
+fun CardComponent(
+    onClickBack: () -> Unit
+){
     Scaffold(
         topBar = {
-            TopAppBar()
+            TopAppBar(onClickBack)
         },
         floatingActionButton = {
             FloatingButton()
@@ -100,7 +103,7 @@ fun CardComponent(){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBar(){
+fun TopAppBar(onClickBack: () -> Unit){
     CenterAlignedTopAppBar(
         title = { Text(text = "Screen of CCC") },
         colors = TopAppBarDefaults.topAppBarColors(
@@ -113,8 +116,8 @@ fun TopAppBar(){
             }
         },
         navigationIcon = {
-            IconButton(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Outlined.Menu, contentDescription = "Menu")
+            IconButton(onClick = onClickBack) {
+                Icon(imageVector = Icons.Outlined.ArrowBack, contentDescription = "Back")
             }
         }
     )
@@ -433,5 +436,5 @@ fun getSolidBrushTextStyle():Brush{
 @Preview(showBackground = true)
 @Composable
 fun CardComposePreview(){
-    CardComponent()
+    CardComponent({})
 }
