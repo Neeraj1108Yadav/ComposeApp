@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -31,7 +32,7 @@ fun NavigateToComponents(
                 .padding(10.dp),
             shape = RectangleShape)
         {
-            Text(text = "Buttons")
+            Text(text = "Buttons", style = MaterialTheme.typography.bodyLarge)
         }
 
         Button(
@@ -41,7 +42,7 @@ fun NavigateToComponents(
                 .padding(10.dp),
             shape = RectangleShape)
         {
-            Text(text = "Input Field")
+            Text(text = "Input Field",style = MaterialTheme.typography.bodyLarge)
         }
 
         Button(
@@ -51,7 +52,7 @@ fun NavigateToComponents(
                 .padding(10.dp),
             shape = RectangleShape)
         {
-            Text(text = "Card-Chips-CheckBox")
+            Text(text = "Card-Chips-CheckBox",style = MaterialTheme.typography.bodyLarge)
         }
 
         Button(
@@ -61,7 +62,7 @@ fun NavigateToComponents(
                 .padding(10.dp),
             shape = RectangleShape)
         {
-            Text(text = "Top App Bar")
+            Text(text = "Top App Bar",style = MaterialTheme.typography.bodyLarge)
         }
     }
 }
