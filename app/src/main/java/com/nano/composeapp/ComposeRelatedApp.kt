@@ -15,6 +15,7 @@ import com.nano.composeapp.components.topBars.AppBarMedium
 import com.nano.composeapp.components.topBars.TopAppBarCentreAligned
 import com.nano.composeapp.components.topBars.TopAppBarLarge
 import com.nano.composeapp.components.topBars.TopBarSmall
+import com.nano.composeapp.screens.login.LoginScreen
 
 @Composable
 fun ComposeRelatedApp(){
@@ -41,6 +42,9 @@ fun ComposeAppNavHost(
                 },
                 onNavigateToTopBar = {
                     navHostController.navigate(Screen.TopBarsScreen.createRoute())
+                },
+                onNavigateToLoginOne = {
+                    navHostController.navigate(Screen.LoginScreen.createRoute())
                 }
             )
         }
@@ -90,17 +94,8 @@ fun ComposeAppNavHost(
                 }
             )
         }
-        composable(route = Screen.Login.route){
-            UserLoginScreen(
-                onLoginClick = {
-                    navHostController.navigate(Screen.Profile.createRoute())
-                }
-            )
-        }
-        composable(route = Screen.Profile.route){
-            UserProfileScreen(
-                onBackArrowClick = {navHostController.popBackStack()}
-            )
+        composable(Screen.LoginScreen.route){
+            LoginScreen()
         }
     }
 }

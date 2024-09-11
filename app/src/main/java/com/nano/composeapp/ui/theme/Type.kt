@@ -1,6 +1,7 @@
 package com.nano.composeapp.ui.theme
 
 import androidx.compose.material3.Typography
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -16,6 +17,7 @@ val notoSansFontFamily = FontFamily(
    Font(R.font.noto_sans_semi_bold,FontWeight.Bold),
    Font(R.font.noto_sans_semi_bold,FontWeight.SemiBold),
    Font(R.font.noto_sans_extra_bold,FontWeight.ExtraBold),
+   Font(R.font.noto_sans_medium,FontWeight.Medium)
 )
 
 val Typography = Typography(
@@ -39,6 +41,13 @@ val Typography = Typography(
         fontSize = 11.sp,
         lineHeight = 16.sp,
         letterSpacing = 0.5.sp
+    ),
+    bodyMedium = TextStyle(
+        fontFamily = notoSansFontFamily,
+        fontWeight = FontWeight.Medium,
+        fontSize = 14.sp,
+        lineHeight = 16.sp,
+        letterSpacing = 0.5.sp,
+        color = Color.White
     )
-
 )

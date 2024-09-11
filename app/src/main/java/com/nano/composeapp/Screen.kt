@@ -3,12 +3,6 @@ package com.nano.composeapp
 sealed class Screen(
     val route:String
 ) {
-    object Login : Screen(route = "login")
-
-    object Profile: Screen(route = "Profile"){
-        fun createRoute() = "Profile"
-    }
-
     object MainScreen : Screen(route = "main"){
         fun createRoute() = "main"
     }
@@ -39,6 +33,10 @@ sealed class Screen(
 
     object LargeTopBar : Screen(route = "largeTopBar"){
         fun createRoute() = "largeTopBar"
+    }
+
+    object LoginScreen : Screen(route = "login_one"){
+        fun createRoute() = "login_one"
     }
 
 }
