@@ -10,4 +10,11 @@
     <color name="focused_text_field">#585858</color>
     <color name="unfocused_text_field">#A3A0A0</color>
     <color name="error_focused_text_field">#EF2929</color>
+
+    <!-- LOGIN-SING-UP COLORS -->
+    <color name="login_signup_bg">#25273f</color>
+    <color name="login_signup_button">#ef3a57</color>
+    <color name="login_signup_border">#B14545</color>
+    <color name="login_signup_placeholder">#ded9de</color>
+    <color name="login_signup_check_box">#53546c</color>
 </resources>
