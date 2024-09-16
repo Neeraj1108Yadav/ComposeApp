@@ -15,15 +15,9 @@
         android:theme="@style/Theme.ComposeApp"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".LauncherActivity"
             android:exported="true"
-            android:label="@string/title_activity_login"
-            android:theme="@style/Theme.ComposeApp"/>
-
-        <activity
-            android:name=".UserActivity"
-            android:exported="true"
-            android:label="@string/title_activity_flower_app_entry"
+            android:label="@string/title_activity_entry"
             android:theme="@style/Theme.ComposeApp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

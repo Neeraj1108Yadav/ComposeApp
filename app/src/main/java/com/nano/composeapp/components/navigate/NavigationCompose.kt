@@ -22,7 +22,8 @@ fun NavigateToComponents(
     onNavigateToCard: () -> Unit,
     onNavigateToInput: ()-> Unit,
     onNavigateToTopBar: () -> Unit,
-    onNavigateToLazyColumn: () -> Unit,
+    onNavigateToLoginOne: () -> Unit,
+    onNavigateToLazyColumn: () -> Unit
 ){
 
     Column(modifier = Modifier.padding(top = 60.dp)) {
@@ -67,6 +68,16 @@ fun NavigateToComponents(
         }
 
         Button(
+            onClick = onNavigateToLoginOne,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            shape = RectangleShape)
+        {
+            Text(text = "Login Screen 1",style = MaterialTheme.typography.bodyLarge)
+        }
+
+        Button(
             onClick = onNavigateToLazyColumn,
             modifier = Modifier
                 .fillMaxWidth()
@@ -75,12 +86,11 @@ fun NavigateToComponents(
         {
             Text(text = "Lazy Column",style = MaterialTheme.typography.bodyLarge)
         }
-
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun NavigateToComposePreview(){
-    NavigateToComponents({},{},{},{},{})
+    NavigateToComponents({},{},{},{},{},{})
 }
