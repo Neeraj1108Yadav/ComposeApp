@@ -74,6 +74,11 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+
     // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:$nav_version")
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation("com.google.code.gson:gson:2.11.0")
+    //Async Image from Network
+    implementation("io.coil-kt:coil-compose:2.3.0")
 }

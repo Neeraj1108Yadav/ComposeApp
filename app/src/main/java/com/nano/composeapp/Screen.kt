@@ -39,4 +39,8 @@ sealed class Screen(
         fun createRoute() = "login_one"
     }
 
+    object LazyColumn : Screen(route = "columnList"){
+        fun createRoute() = "columnList"
+    }
+
 }
