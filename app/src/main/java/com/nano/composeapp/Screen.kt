@@ -41,4 +41,7 @@ sealed class Screen(
         fun createRoute() = "largeTopBar"
     }
 
+    object LazyColumn : Screen(route = "columnList"){
+        fun createRoute() = "columnList"
+    }
 }

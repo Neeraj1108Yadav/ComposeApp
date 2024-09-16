@@ -21,7 +21,8 @@ fun NavigateToComponents(
     onNavigateToButton: () -> Unit,
     onNavigateToCard: () -> Unit,
     onNavigateToInput: ()-> Unit,
-    onNavigateToTopBar: () -> Unit
+    onNavigateToTopBar: () -> Unit,
+    onNavigateToLazyColumn: () -> Unit,
 ){
 
     Column(modifier = Modifier.padding(top = 60.dp)) {
@@ -64,11 +65,22 @@ fun NavigateToComponents(
         {
             Text(text = "Top App Bar",style = MaterialTheme.typography.bodyLarge)
         }
+
+        Button(
+            onClick = onNavigateToLazyColumn,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            shape = RectangleShape)
+        {
+            Text(text = "Lazy Column",style = MaterialTheme.typography.bodyLarge)
+        }
+
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun NavigateToComposePreview(){
-    NavigateToComponents({},{},{},{})
+    NavigateToComponents({},{},{},{},{})
 }

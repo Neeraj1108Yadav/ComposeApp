@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.nano.composeapp.components.buttons.ButtonCompose
 import com.nano.composeapp.components.cards.CardComponent
 import com.nano.composeapp.components.input.TextInputCompose
+import com.nano.composeapp.components.list.LazyListColumn
 import com.nano.composeapp.components.navigate.NavigateToComponents
 import com.nano.composeapp.components.topBars.AppBarMedium
 import com.nano.composeapp.components.topBars.TopAppBarCentreAligned
@@ -41,6 +42,9 @@ fun ComposeAppNavHost(
                 },
                 onNavigateToTopBar = {
                     navHostController.navigate(Screen.TopBarsScreen.createRoute())
+                },
+                onNavigateToLazyColumn ={
+                    navHostController.navigate(Screen.LazyColumn.createRoute())
                 }
             )
         }
@@ -101,6 +105,10 @@ fun ComposeAppNavHost(
             UserProfileScreen(
                 onBackArrowClick = {navHostController.popBackStack()}
             )
+        }
+
+        composable(route = Screen.LazyColumn.route){
+            LazyListColumn()
         }
     }
 }
