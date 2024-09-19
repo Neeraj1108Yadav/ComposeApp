@@ -37,6 +37,7 @@ import com.nano.composeapp.model.ProductModel
 import com.nano.composeapp.ui.theme.notoSansFontFamily
 import com.nano.composeapp.util.ReadJsonAsset
 import com.nano.composeapp.util.parseJsonToModel
+import com.nano.composeapp.util.setFirstLetterCapital
 
 /**
  * Created By Neeraj Yadav on 16/09/24
@@ -72,7 +73,7 @@ fun ProductCard(product:ProductModel){
             containerColor = Color.White,
         )
     ) {
-        ConstraintLayout{
+        ConstraintLayout(modifier = Modifier.fillMaxWidth()){
             val (productImage,productName,productCategory,
                 productPrice,ratingPrice) = createRefs()
 
@@ -101,7 +102,7 @@ fun ProductCard(product:ProductModel){
                         top.linkTo(productImage.top)
                         start.linkTo(productImage.end, margin = 10.dp)
                         end.linkTo(parent.end,margin = 10.dp)
-                        width = Dimension.wrapContent
+                        width = Dimension.fillToConstraints
                     },
                 text = product.productName,
                 fontFamily = notoSansFontFamily,
@@ -114,9 +115,9 @@ fun ProductCard(product:ProductModel){
                     .constrainAs(productCategory) {
                         top.linkTo(productName.bottom, margin = 5.dp)
                         start.linkTo(productName.start)
-                        width = Dimension.wrapContent
+                        width = Dimension.fillToConstraints
                     },
-                text = product.productCategory,
+                text = setFirstLetterCapital(product.productCategory),
                 fontFamily = notoSansFontFamily,
                 fontWeight = FontWeight.Medium,
                 fontSize = 15.sp,
@@ -124,20 +125,19 @@ fun ProductCard(product:ProductModel){
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier.constrainAs(ratingPrice){
                     top.linkTo(productCategory.bottom, margin = 5.dp)
                     start.linkTo(productName.start)
-                    end.linkTo(parent.end)
+                    end.linkTo(parent.end, margin = 10.dp)
                     width = Dimension.fillToConstraints
                 }
-                    .background(Color.Blue)
             ) {
                 Text(
                     text = product.productPrice,
                     fontFamily = notoSansFontFamily,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 14.sp,
-                    color = Color.White
+                    fontSize = 14.sp
                 )
 
                 Text(
@@ -145,8 +145,6 @@ fun ProductCard(product:ProductModel){
                     fontFamily = notoSansFontFamily,
                     fontWeight = FontWeight.Normal,
                     fontSize = 12.sp,
-                    color = Color.Yellow,
-                    modifier = Modifier.background(Color.Red)
                 )
             }
         }
