@@ -43,4 +43,8 @@ sealed class Screen(
         fun createRoute() = "columnList"
     }
 
+    object BottomNavigationBar : Screen(route = "bottomBar"){
+        fun createRoute() = "bottomBar"
+    }
+
 }
