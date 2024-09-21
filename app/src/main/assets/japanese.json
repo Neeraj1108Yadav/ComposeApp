@@ -1,0 +1,123 @@
+[
+  {
+    "name":"Sushi",
+    "subName":"",
+    "category":"",
+    "description":"Japanese sushi has its roots in the street food culture of medieval Tokyo, with pieces of nigiri (a rectangular bed of vinegar-seasoned rice topped with a slice of raw fish) served up from stalls and eaten by hand.",
+    "price":"$12.34",
+    "image":"R.drawable.sushi",
+    "rating":4,
+    "topOfWeek":false,
+    "featured":false
+  },
+  {
+    "name":"Okonomiyaki",
+    "subName":"",
+    "category":"",
+    "description":"Okonomiyaki is made from an egg-and-flour batter mixed with cabbage and fried. Other ingredients can also be added according to regional recipes and your personal taste. These can include pork belly, kimchi, various vegetables, and usually a topping of dried bonito fish flakes, mayonnaise, and special okonomiyaki sauce.",
+    "price":"$14.74",
+    "image":"R.drawable.okonomiyaki",
+    "rating":5,
+    "topOfWeek":false,
+    "featured":false
+  },
+  {
+    "name":"Miso soup",
+    "subName":"",
+    "category":"soup",
+    "description":"A firm staple in the Japanese diet, you can find this thin soup on the menu for breakfast, lunch, and dinner. Miso soup is made from dashi and miso, a salty-tasting paste made from fermented soybeans and koji. There are four main categories of miso — white miso, red miso, blended, and barley—and dozens of regional varieties, each of which produces a distinctive soup.",
+    "price":"$6.10",
+    "image":"R.drawable.miso_soup",
+    "rating":4,
+    "topOfWeek":false,
+    "featured":false
+  },
+  {
+    "name":"Yakitori",
+    "subName":"",
+    "category":"",
+    "description":"These reasonably priced grilled chicken skewers are a favorite among after-work diners looking for a cheap and relaxed meal with a few beers. Step inside a yakitori restaurant, and you’ll be met with the heat of burning charcoals, with chefs busy fanning away at them and arranging skewers with pretty much every piece of the chicken imaginable, from the breast and thigh to the heart, gizzard, and cartilage!",
+    "price":"$13.75",
+    "image":"R.drawable.yakitori",
+    "rating":4,
+    "topOfWeek":false,
+    "featured":false
+  },
+  {
+    "name":"Udon",
+    "subName":"",
+    "category":"",
+    "description":"Udon is a hearty and inexpensive lunch option, usually boiled and then served with a simple broth. Kake udon features those two ingredients alone, and although it might look basic, it actually makes for a very hearty meal by itself. If you want a bit more bite, udon shops usually offer a wide range of toppings such as raw egg, tempura bits and spring onion.",
+    "price":"$5.30",
+    "image":"R.drawable.udon",
+    "rating":4,
+    "topOfWeek":false,
+    "featured":false
+  },
+  {
+    "name":"Sukiyaki",
+    "subName":"",
+    "category":"",
+    "description":"This Japanese hot pot dish is perfect for social dining, with raw beef, noodles, and vegetables cooked at your table in a shallow iron pot of boiling broth made from soy sauce, sugar, and a type of rice wine for cooking called mirin. The thin strips of beef are usually dipped in raw, beaten egg after cooking. It was invented during the Edo period but failed to fully catch on due to strict Buddhist restrictions on meat consumption. Beef could only be eaten on special occasions or if one was recovering from illness.",
+    "price":"$10.50",
+    "image":"R.drawable.sukiyaki",
+    "rating":4,
+    "topOfWeek":false,
+    "featured":false
+  },
+  {
+    "name":"Unagi",
+    "subName":"",
+    "category":"",
+    "description":"From the early 17th century onwards, unagi was an inexpensive and common meal among the people of Japan due to the abundance of eel in the rivers and streams. Its status as a delicacy nowadays can be blamed on Japan’s insatiable appetite for this delicious fish, traditionally eaten grilled and coated with sweet and salty tare sauce. Unagi is said to give energy and vitality, so it has long been eaten on the Day of the Ox as a remedy for midsummer fatigue and as an aphrodisiac for men.",
+    "price":"$15.25",
+    "image":"R.drawable.unagi",
+    "rating":5,
+    "topOfWeek":false,
+    "featured":false
+  },
+  {
+    "name":"Tonkatsu",
+    "subName":"",
+    "category":"",
+    "description":"Tonkatsu was invented at a Tokyo restaurant called Rengatei in 1899, served with rice and shredded cabbage. It was originally considered a Western-style dish due to the use of pork, which the Japanese rarely ate. On top of that, the Japanese curry sauce added to make the popular katsu curry was introduced to Japan by the British via India.",
+    "price":"$13",
+    "image":"R.drawable.tonkatsu",
+    "rating":4,
+    "topOfWeek":false,
+    "featured":false
+  },
+  {
+    "name":"Gyoza",
+    "subName":"",
+    "category":"",
+    "description":"The perfect side dish at a ramen restaurant, gyoza is the crispy-on-the-outside, juicy-on-the-inside pan-fried dumplings with Chinese origins. In Japanese cooking, gyoza usually contains pork, finely chopped cabbage, and mushrooms, though anything can be gyoza-ified by simply wrapping it in the thin potsticker skin.",
+    "price":"$8.75",
+    "image":"R.drawable.gyoza",
+    "rating":4,
+    "topOfWeek":false,
+    "featured":false
+  },
+  {
+    "name":"Gyudon",
+    "subName":"",
+    "category":"",
+    "description":"The Japanese beef-and-rice bowl, gyudon, is a classic Japanese fast food that’s both comforting and hearty, with several gyudon chains vying for first place in Japan (Yoshinoya, Matsuya, and Sukiya are the main players). Consisting of thin slices of beef, tender and sweet onions, and a garnish of bright-tasting benishoga (pickled red ginger) all atop a bowl of steamed white rice, gyudon is a crowd-pleaser.",
+    "price":"$17.34",
+    "image":"R.drawable.gyudon",
+    "rating":4,
+    "topOfWeek":false,
+    "featured":false
+  },
+  {
+    "name":"Karaage",
+    "subName":"",
+    "category":"",
+    "description":"A staple of izakaya (Japanese gastropubs) menus, karaage are morsels of twice-fried Japanese fried chicken. Marinated in a mixture of soy sauce, sake, and ginger, every bite of karaage is juicy and packed with flavor, while the use of potato starch in the dredge makes Japanese fried chicken extra crispy.",
+    "price":"$11.56",
+    "image":"R.drawable.karaage",
+    "rating":4,
+    "topOfWeek":false,
+    "featured":false
+  }
+]

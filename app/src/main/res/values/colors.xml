@@ -17,4 +17,9 @@
     <color name="login_signup_border">#B14545</color>
     <color name="login_signup_placeholder">#ded9de</color>
     <color name="login_signup_check_box">#53546c</color>
+
+    <color name="text_color">#585858</color>
+    <color name="dark_text_color">#484848</color>
+    <color name="placeholder_color">#9f9f9f</color>
+    <color name="food_theme">#307a59</color>
 </resources>
