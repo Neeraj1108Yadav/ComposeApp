@@ -22,4 +22,8 @@
     <color name="dark_text_color">#484848</color>
     <color name="placeholder_color">#9f9f9f</color>
     <color name="food_theme">#307a59</color>
+    <color name="blur_theme_color">#BCF1D9</color>
+    <color name="input_box_color">#F2EEEE</color>
+    <color name="arc_color">#31634D</color>
+    <color name="discount_card_bg">#F1EDED</color>
 </resources>

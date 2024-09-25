@@ -1,16 +1,24 @@
 package com.nano.composeapp.components.bottomnav
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.nano.composeapp.sealed.BottomNavigationScreens
+import com.nano.composeapp.food.components.CardDelivery
+import com.nano.composeapp.food.components.CardDiscount
+import com.nano.composeapp.food.components.LazyFoodList
+import com.nano.composeapp.food.components.SearchView
 import com.nano.composeapp.ui.theme.notoSansFontFamily
 
 /**
@@ -19,15 +27,40 @@ import com.nano.composeapp.ui.theme.notoSansFontFamily
 
 @Composable
 fun HomeScreen(){
-    Scaffold {innerPadding ->
-        Box(modifier = Modifier.padding(innerPadding).fillMaxSize()){
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = Color.White
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(15.dp)
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+        ) {
+            SearchView()
+            Spacer(modifier = Modifier.padding(top = 10.dp))
+            CardDelivery()
+            CardDiscount()
             Text(
-                text = BottomNavigationScreens.Home.route,
-                modifier = Modifier.align(Alignment.Center),
-                fontSize = 20.sp,
+                text = "Top Of Week",
+                fontSize = 18.sp,
                 fontFamily = notoSansFontFamily,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.W800,
+                color = Color.Black,
+                modifier = Modifier.padding(top = 20.dp)
             )
+            LazyFoodList()
+            CardDiscount()
+
         }
     }
+}
+
+@Preview(
+    showBackground = true,
+    showSystemUi = true
+)
+@Composable
+fun HomeScreenPreview(){
+    HomeScreen()
 }

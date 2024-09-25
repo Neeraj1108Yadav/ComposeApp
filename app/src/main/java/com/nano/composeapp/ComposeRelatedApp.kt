@@ -40,107 +40,104 @@ fun ComposeAppNavHost(
     navBarController: NavHostController
 ){
     val activity = (LocalContext.current as Activity)
-    Scaffold {innerPadding->
-        NavHost(
-            navController = navHostController,
-            startDestination = Screen.MainScreen.route,
-            modifier = Modifier.padding(innerPadding))
-        {
-            composable(route = Screen.MainScreen.route){
-                NavigateToComponents(
-                    onNavigateToButton = {
-                        navHostController.navigate(Screen.ButtonsScreen.createRoute())
-                    },
-                    onNavigateToCard = {
-                        navHostController.navigate(Screen.CardScreen.createRoute())
-                    },
-                    onNavigateToInput = {
-                        navHostController.navigate(Screen.InputScreen.createRoute())
-                    },
-                    onNavigateToTopBar = {
-                        navHostController.navigate(Screen.TopBarsScreen.createRoute())
-                    },
-                    onNavigateToLoginOne = {
-                        navHostController.navigate(Screen.LoginScreen.createRoute())
-                    },
-                    onNavigateToLazyColumn = {
-                        navHostController.navigate(Screen.LazyColumn.createRoute())
-                    },
-                    onNavigateToBottomBar = {
-                        navHostController.popBackStack()
-                        navHostController.navigate(Screen.BottomNavigationBar.createRoute()){
-                            popUpTo(navHostController.graph.startDestinationId)
-                            launchSingleTop = true
-                        }
+    NavHost(
+        navController = navHostController,
+        startDestination = Screen.MainScreen.route)
+    {
+        composable(route = Screen.MainScreen.route){
+            NavigateToComponents(
+                onNavigateToButton = {
+                    navHostController.navigate(Screen.ButtonsScreen.createRoute())
+                },
+                onNavigateToCard = {
+                    navHostController.navigate(Screen.CardScreen.createRoute())
+                },
+                onNavigateToInput = {
+                    navHostController.navigate(Screen.InputScreen.createRoute())
+                },
+                onNavigateToTopBar = {
+                    navHostController.navigate(Screen.TopBarsScreen.createRoute())
+                },
+                onNavigateToLoginOne = {
+                    navHostController.navigate(Screen.LoginScreen.createRoute())
+                },
+                onNavigateToLazyColumn = {
+                    navHostController.navigate(Screen.LazyColumn.createRoute())
+                },
+                onNavigateToBottomBar = {
+                    navHostController.popBackStack()
+                    navHostController.navigate(Screen.BottomNavigationBar.createRoute()){
+                        popUpTo(navHostController.graph.startDestinationId)
+                        launchSingleTop = true
                     }
-                )
-            }
-            composable(Screen.ButtonsScreen.route){
-                ButtonCompose(
-                    onClickBack = {
-                        navHostController.popBackStack()
-                    }
-                )
-            }
-            composable(Screen.InputScreen.route){
-                TextInputCompose(
-                    onClickBack = {
-                        navHostController.popBackStack()
-                    }
-                )
-            }
-            composable(Screen.CardScreen.route){
-                CardComponent(
-                    onClickBack ={
-                        navHostController.popBackStack()
-                    }
-                )
-            }
-            composable(Screen.TopBarsScreen.route){
-                TopBarSmall(navHostController)
-            }
-            composable(Screen.MediumTopBar.route){
-                AppBarMedium(
-                    onBackPress = {
-                        navHostController.popBackStack()
-                    }
-                )
+                }
+            )
+        }
+        composable(Screen.ButtonsScreen.route){
+            ButtonCompose(
+                onClickBack = {
+                    navHostController.popBackStack()
+                }
+            )
+        }
+        composable(Screen.InputScreen.route){
+            TextInputCompose(
+                onClickBack = {
+                    navHostController.popBackStack()
+                }
+            )
+        }
+        composable(Screen.CardScreen.route){
+            CardComponent(
+                onClickBack ={
+                    navHostController.popBackStack()
+                }
+            )
+        }
+        composable(Screen.TopBarsScreen.route){
+            TopBarSmall(navHostController)
+        }
+        composable(Screen.MediumTopBar.route){
+            AppBarMedium(
+                onBackPress = {
+                    navHostController.popBackStack()
+                }
+            )
 
-            }
-            composable(Screen.CentralTopBar.route){
-                TopAppBarCentreAligned(
-                    onBackPress = {
-                        navHostController.popBackStack()
-                    }
-                )
-            }
-            composable(Screen.LargeTopBar.route){
-                TopAppBarLarge(
-                    onBackPress = {
-                        navHostController.popBackStack()
-                    }
-                )
-            }
-            composable(Screen.LoginScreen.route){
-                LoginScreen()
-            }
+        }
+        composable(Screen.CentralTopBar.route){
+            TopAppBarCentreAligned(
+                onBackPress = {
+                    navHostController.popBackStack()
+                }
+            )
+        }
+        composable(Screen.LargeTopBar.route){
+            TopAppBarLarge(
+                onBackPress = {
+                    navHostController.popBackStack()
+                }
+            )
+        }
+        composable(Screen.LoginScreen.route){
+            LoginScreen()
+        }
 
-            composable(route = Screen.LazyColumn.route){
-                LazyListColumn()
-            }
+        composable(route = Screen.LazyColumn.route){
+            LazyListColumn()
+        }
 
-            composable(route = Screen.BottomNavigationBar.route) {
-                val listOfTab = listOf(
-                    BottomNavigationScreens.Home,
-                    BottomNavigationScreens.Menu,
-                    BottomNavigationScreens.Cart,
-                    BottomNavigationScreens.Profile
-                )
-                BottomNavigationBar(
-                    navBarController,
-                    listOfTab
-                )
-            }
+        composable(route = Screen.BottomNavigationBar.route) {
+            val listOfTab = listOf(
+                BottomNavigationScreens.Home,
+                BottomNavigationScreens.Menu,
+                BottomNavigationScreens.Cart,
+                BottomNavigationScreens.Profile
+            )
+            BottomNavigationBar(
+                navBarController,
+                listOfTab
+            )
         }
     }
 }
