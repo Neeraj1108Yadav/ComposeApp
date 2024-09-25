@@ -31,9 +31,9 @@ val Typography = Typography(
     titleLarge = TextStyle(
         fontFamily = notoSansFontFamily,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 22.sp,
+        fontSize = 20.sp,
         lineHeight = 28.sp,
-        letterSpacing = 0.sp
+        letterSpacing = 0.5.sp
     ),
     labelSmall = TextStyle(
         fontFamily = notoSansFontFamily,
@@ -47,7 +47,6 @@ val Typography = Typography(
         fontWeight = FontWeight.Medium,
         fontSize = 14.sp,
         lineHeight = 16.sp,
-        letterSpacing = 0.5.sp,
-        color = Color.White
+        letterSpacing = 0.5.sp
     )
 )

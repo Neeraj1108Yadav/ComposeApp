@@ -1,6 +1,7 @@
 package com.nano.composeapp.components.navigate
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -17,9 +18,11 @@ import com.nano.composeapp.sealed.BottomNavigationScreens
 
 @Composable
 fun BottomNavigationHost(
-    navController: NavController
+    navController: NavController,
+    modifier: Modifier
 ){
     NavHost(
+        modifier = modifier,
         navController = navController as NavHostController,
         startDestination = BottomNavigationScreens.Home.route
     ) {
