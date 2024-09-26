@@ -3,6 +3,7 @@ package com.nano.composeapp.util
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.nano.composeapp.model.CartModel
 import com.nano.composeapp.model.FoodModel
 import com.nano.composeapp.model.ProductModel
 
@@ -18,6 +19,11 @@ fun parseJsonToModel(jsonString:String):List<ProductModel>{
 fun parseFoodJsonToModel(jsonString:String):List<FoodModel>{
     val gson = Gson()
     return gson.fromJson(jsonString,object : TypeToken<List<FoodModel>>() {}.type)
+}
+
+fun parseCartJsonModel(jsonString:String):List<CartModel>{
+    val gson = Gson()
+    return gson.fromJson(jsonString,object : TypeToken<List<CartModel>>() {}.type)
 }
 
 fun getDrawableResourceId(context: Context,resourceName:String):Int{

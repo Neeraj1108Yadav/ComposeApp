@@ -9,7 +9,8 @@
     "image":"sushi",
     "rating":4,
     "topOfWeek":false,
-    "featured":false
+    "featured":false,
+    "isFav": false
   },
   {
     "foodId": 3,
@@ -21,7 +22,8 @@
     "image":"miso_soup",
     "rating":4,
     "topOfWeek":false,
-    "featured":false
+    "featured":true,
+    "isFav": true
   },
   {
     "foodId": 4,
@@ -33,7 +35,8 @@
     "image":"yakitori",
     "rating":4,
     "topOfWeek":false,
-    "featured":false
+    "featured":false,
+    "isFav": false
   },
   {
     "foodId": 5,
@@ -45,7 +48,8 @@
     "image":"udon",
     "rating":4,
     "topOfWeek":false,
-    "featured":false
+    "featured":true,
+    "isFav": false
   },
   {
     "foodId": 6,
@@ -57,7 +61,8 @@
     "image":"sukiyaki",
     "rating":4,
     "topOfWeek":false,
-    "featured":false
+    "featured":false,
+    "isFav": false
   },
   {
     "foodId": 7,
@@ -69,7 +74,8 @@
     "image":"unagi",
     "rating":5,
     "topOfWeek":false,
-    "featured":false
+    "featured":true,
+    "isFav": false
   },
   {
     "foodId": 8,
@@ -81,7 +87,8 @@
     "image":"tonkatsu",
     "rating":4,
     "topOfWeek":false,
-    "featured":false
+    "featured":true,
+    "isFav": true
   },
   {
     "foodId": 9,
@@ -93,7 +100,8 @@
     "image":"gyoza",
     "rating":4,
     "topOfWeek":false,
-    "featured":false
+    "featured":true,
+    "isFav": true
   },
   {
     "foodId": 10,
@@ -105,7 +113,8 @@
     "image":"gyudon",
     "rating":4,
     "topOfWeek":false,
-    "featured":false
+    "featured":true,
+    "isFav": false
   },
   {
     "foodId": 11,
@@ -117,7 +126,8 @@
     "image":"karaage",
     "rating":4,
     "topOfWeek":false,
-    "featured":false
+    "featured":true,
+    "isFav": false
   },
   {
     "foodId": 2,
@@ -129,6 +139,7 @@
     "image":"okonomiyaki",
     "rating":5,
     "topOfWeek":false,
-    "featured":false
+    "featured":false,
+    "isFav": false
   }
 ]

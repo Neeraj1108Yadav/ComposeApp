@@ -10,6 +10,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -17,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nano.composeapp.food.components.CardDelivery
 import com.nano.composeapp.food.components.CardDiscount
+import com.nano.composeapp.food.components.CardFavorite
 import com.nano.composeapp.food.components.LazyFoodList
 import com.nano.composeapp.food.components.SearchView
 import com.nano.composeapp.ui.theme.notoSansFontFamily
@@ -39,7 +41,12 @@ fun HomeScreen(){
         ) {
             SearchView()
             Spacer(modifier = Modifier.padding(top = 10.dp))
-            CardDelivery()
+            CardDelivery(modifier = Modifier.shadow(
+                elevation = 40.dp,
+                ambientColor = Color.Red, // Custom shadow color
+                spotColor = Color.Blue   // Custom spot color (light sources)
+            ).padding(top = 10.dp))
+
             CardDiscount()
             Text(
                 text = "Top Of Week",
@@ -50,7 +57,7 @@ fun HomeScreen(){
                 modifier = Modifier.padding(top = 20.dp)
             )
             LazyFoodList()
-            CardDiscount()
+            CardFavorite()
 
         }
     }

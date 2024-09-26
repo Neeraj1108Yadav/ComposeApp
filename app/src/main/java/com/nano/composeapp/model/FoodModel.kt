@@ -15,5 +15,6 @@ data class FoodModel(
     val image:String,
     val rating:Int,
     val topOfWeek:Boolean = false,
-    val featured:Boolean = false
+    val featured:Boolean = false,
+    val isFav:Boolean = false
 )

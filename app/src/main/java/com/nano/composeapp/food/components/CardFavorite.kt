@@ -1,29 +1,25 @@
 package com.nano.composeapp.food.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.compose.ConstraintLayout
 import com.nano.composeapp.R
 import com.nano.composeapp.ui.theme.notoSansFontFamily
 
@@ -33,64 +29,59 @@ import com.nano.composeapp.ui.theme.notoSansFontFamily
 @Composable
 fun CardFavorite() {
     Card(
-        shape = RoundedCornerShape(5.dp),
+        shape = RoundedCornerShape(8.dp),
         colors = CardDefaults.cardColors(
-            containerColor = colorResource(id = R.color.discount_card_bg)
+            containerColor = colorResource(id = R.color.food_theme)
         ),
-        modifier = Modifier.padding(top = 20.dp)
+        modifier = Modifier
+            .padding(top = 20.dp)
+            .height(200.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(13.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Box(modifier = Modifier
-                .height(120.dp),
-                contentAlignment = Alignment.Center
-            ){
-                Image(
-                    painter = painterResource(id = R.drawable.image),
-                    contentDescription = null
-                )
-            }
+        ConstraintLayout {
+            val (image,description) = createRefs()
+            Image(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .aspectRatio(1f)
+                    .constrainAs(image){
+                        top.linkTo(parent.top)
+                        start.linkTo(parent.start)
+                        bottom.linkTo(parent.bottom)
+                        end.linkTo(parent.end)
+                    },
+                painter = painterResource(id = R.drawable.banner),
+                contentDescription = null
+            )
 
-            Column() {
+            Column(
+                modifier = Modifier
+                    .constrainAs(description){
+                        top.linkTo(parent.top, margin = 20.dp)
+                        start.linkTo(parent.start, margin = 20.dp)
+                        bottom.linkTo(parent.bottom, margin = 20.dp)
+                    }
+            ) {
+
                 Text(
-                    text = "Chicken Teriyaki",
+                    text = "Yakitori",
                     fontSize = 24.sp,
                     fontFamily = notoSansFontFamily,
-                    fontWeight = FontWeight.W900,
-                    color = Color.Black
+                    fontWeight = FontWeight.W800,
+                    color = colorResource(id = R.color.white)
                 )
 
                 Text(
-                    modifier = Modifier.padding(top = 5.dp),
-                    text = "Discount 25%",
-                    fontSize = 18.sp,
-                    fontFamily = notoSansFontFamily,
-                    fontWeight = FontWeight.W800,
-                    color = colorResource(id = R.color.arc_color)
-                )
-
-                ElevatedButton(
-                    onClick = {  },
-                    shape = RoundedCornerShape(5.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = colorResource(id = R.color.food_theme)
-                    ),
                     modifier = Modifier.padding(top = 5.dp)
-                ) {
-                    Text(
-                        text = "Order Now",
-                        fontSize = 16.sp,
-                        fontFamily = notoSansFontFamily,
-                        fontWeight = FontWeight.Bold,
-                        color = Color.White
-                    )
-                }
+                        .width(150.dp),
+                    text = "These Grilled chicken " +
+                            "skewers are a favorite among after work diners " +
+                            "with a few beers!",
+                    fontSize = 15.sp,
+                    fontFamily = notoSansFontFamily,
+                    fontWeight = FontWeight.W700,
+                    color = colorResource(id = R.color.white)
+                )
             }
-
         }
     }
 }
