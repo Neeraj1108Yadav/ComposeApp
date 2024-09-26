@@ -1,0 +1,37 @@
+[
+  {
+    "foodId":3,
+    "name":"Miso soup",
+    "price":"$6.10",
+    "image":"miso_soup",
+    "quantity":1
+  },
+  {
+    "foodId":5,
+    "name":"Udon",
+    "price":"$5.30",
+    "image":"udon",
+    "quantity":1
+  },
+  {
+    "foodId":7,
+    "name":"Unagi",
+    "price":"$15.25",
+    "image":"unagi",
+    "quantity":1
+  },
+  {
+    "foodId":9,
+    "name":"Gyoza",
+    "price":"$8.75",
+    "image":"gyoza",
+    "quantity":1
+  },
+  {
+    "foodId":6,
+    "name":"Sukiyaki",
+    "price":"$10.50",
+    "image":"sukiyaki",
+    "quantity":1
+  }
+]

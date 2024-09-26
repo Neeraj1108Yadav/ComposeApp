@@ -38,7 +38,7 @@ import com.nano.composeapp.ui.theme.notoSansFontFamily
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CardDelivery(){
+fun CardDelivery(modifier: Modifier){
     ElevatedCard(
         onClick = {  },
         elevation = CardDefaults.cardElevation(
@@ -48,11 +48,7 @@ fun CardDelivery(){
         colors = CardDefaults.cardColors(
             containerColor = colorResource(id = R.color.food_theme)
         ),
-        modifier = Modifier.shadow(
-            elevation = 40.dp,
-            ambientColor = Color.Red, // Custom shadow color
-            spotColor = Color.Blue   // Custom spot color (light sources)
-        ).padding(top = 10.dp)
+        modifier = modifier
     ) {
         Row(modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,) {
@@ -111,11 +107,11 @@ fun CardDelivery(){
     }
 }
 
-@Preview(
+/*@Preview(
     showBackground = true,
     showSystemUi = true
 )
 @Composable
 fun CardDeliveryPreview(){
     CardDelivery()
-}
+}*/
